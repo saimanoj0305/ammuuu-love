@@ -87,7 +87,20 @@ if (step === 4) {
   const bearImg = document.getElementById("bearImg");
 
   const images = [
-    "images/img1.jpg",
+   const teddy = document.getElementById("teddy");
+
+const teddyFaces = [
+  "🧸💗",
+  "🧸🥺",
+  "🧸💔",
+  "🧸😭",
+  "🧸🥹",
+  "🧸❤️‍🩹"
+];
+
+if (teddyFaces[noCount]) {
+  teddy.textContent = teddyFaces[noCount];
+}
 
   ];
 
@@ -152,4 +165,5 @@ chaala rojula nundi naa manasulo daachukoni unna maataa idhi… 💖 </p>
     `;
   }
 }
+
 
