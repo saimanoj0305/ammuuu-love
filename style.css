@@ -1,0 +1,258 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #ff5fa2, #0b0010 60%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Comic Sans MS", "Courier New", monospace;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* 🌌 Stars */
+.stars::before {
+  content: "✦ ✧ ✨ ✦ ✧ ✨ ✦ ✧ ✨ ✦ ✧ ✨ ✦ ✧ ✨ ✦ ✧ ✨";
+  position: fixed;
+  inset: 0;
+  font-size: 18px;
+  opacity: 0.6;
+  animation: twinkle 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes twinkle {
+  0% { opacity: .3; }
+  50% { opacity: .8; }
+  100% { opacity: .3; }
+}
+
+/* 💖 Floating Emojis */
+.emoji-layer::before {
+  content: "💖 💕 🌸 ✨ 💘 🧸 💖 💕 🌸 ✨ 💘 🧸";
+  position: fixed;
+  bottom: -20%;
+  left: 10%;
+  font-size: 28px;
+  animation: floatEmoji 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes floatEmoji {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-150vh); opacity: 0; }
+}
+
+/* 🐱 Mascot */
+.mascot {
+  position: fixed;
+  bottom: 24px;
+  left: -60px;
+  font-size: 48px;
+  animation: walk 10s linear infinite;
+  filter: drop-shadow(0 0 10px #ff5fa2);
+}
+@keyframes walk {
+  0% { left: -60px; transform: scaleX(1); }
+  49% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  100% { left: calc(100% + 60px); transform: scaleX(-1); }
+}
+
+/* Window */
+.window {
+  width: 390px;
+  background: linear-gradient(180deg, #140014, #2b002b);
+  border-radius: 18px;
+  border: 3px solid #ff5fa2;
+  box-shadow: 0 0 25px #ff5fa2;
+  animation: zoomIn .6s ease;
+}
+@keyframes zoomIn {
+  from { transform: scale(.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.title-bar {
+  background: #ff5fa2;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #000;
+  border-radius: 15px 15px 0 0;
+}
+
+.content {
+  padding: 25px;
+  text-align: center;
+  animation: fadeUp .6s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: #ff8dc7;
+  text-shadow: 0 0 8px #ff5fa2;
+}
+p { margin: 12px 0; font-size: 15px; }
+
+/* Buttons */
+button {
+  margin-top: 16px;
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #ff5fa2, #ff8dc7);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff5fa2;
+  animation: pulse 1.3s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+.buttons { position: relative; height: 90px; }
+
+/* Slider */
+.slider img {
+  width: 100%;
+  border-radius: 14px;
+  border: 3px solid #ff5fa2;
+  margin-top: 15px;
+  box-shadow: 0 0 15px #ff5fa2;
+}
+
+/* 💥 Confetti */
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 18px;
+  animation: fall 3s linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+/* ---- keep all your existing CSS ABOVE ---- */
+
+/* YES button pulse */
+#yesBtn {
+  animation: yesPulse 1.4s infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes yesPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* NO button */
+#noBtn {
+  transition: transform 0.3s ease;
+  background: #9aa0a6;
+}
+
+/* NO shake (after multiple clicks) */
+.shake {
+  animation: shake 0.35s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* YES grow pop */
+.pop {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* image */
+.choice-img {
+  width: 160px;
+  margin: 15px auto;
+}
+/* YES grows via wrapper (no animation conflict) */
+#yesWrap {
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
+/* YES button pulse stays */
+#yesBtn {
+  animation: yesPulse 1.4s infinite;
+}
+
+/* NO button behavior */
+#noBtn {
+  background: #9aa0a6;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* NO shake */
+.shake {
+  animation: shake 0.35s;
+}
+
+/* YES fills card */
+.fullscreen-yes {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.fullscreen-yes button {
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  border-radius: 20px;
+}
+
+/* Animations */
+@keyframes yesPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+#yesWrap {
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
+.fullscreen-yes {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.fullscreen-yes button {
+  width: 100%;
+  height: 100%;
+  font-size: 32px;
+  border-radius: 20px;
+}
