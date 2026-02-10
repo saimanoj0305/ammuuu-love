@@ -1,3 +1,11 @@
+const bgMusic = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play().catch(() => {});
+  }
+}, { once: true });
+
 const content = document.getElementById("content");
 let step = 1;
 
@@ -144,3 +152,4 @@ chaala rojula nundi naa manasulo daachukoni unna maataa idhi… 💖 </p>
     `;
   }
 }
+
